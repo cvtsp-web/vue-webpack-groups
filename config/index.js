@@ -20,7 +20,7 @@ module.exports = {
   appDist: resolveApp('dist'),
   appHtml: resolveApp('dist/index.html'),
   appConfigOverrides: 
-  resolveApp('config-overrides.js') 
+  fs.existsSync(resolveApp('config-overrides.js'))
   ? resolveApp('config-overrides.js') 
   : resolveSelfApp('config-overrides.js'),
   dev: {
