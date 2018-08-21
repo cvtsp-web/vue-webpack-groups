@@ -16,7 +16,7 @@ const injectBabelPlugin = function(pluginName, config) {
         console.log('babel-loader not found');
         return config;
     }
-    const options = loader.options || loader.query;
+    const options = loader.options || loader.query || {};
     options.plugins =  [pluginName].concat(options.plugins || []);
     return config;
 }
