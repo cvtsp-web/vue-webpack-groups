@@ -11,11 +11,13 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const resolveSelfApp = relativePath => path.resolve(selfDirectory, '..', relativePath);
 
 module.exports = {
+  app: resolveApp(''),
   appIndexJs: resolveApp('src/main.js'),
   appSrc: resolveApp('src'),
   appTest: resolveApp('test'),
   appStatic: resolveApp('static'),
   appNodeModules: resolveApp('node_modules'),
+  ownNodeModules: resolveSelfApp('node_modules'),
   appPackageJson: resolveApp('package.json'),
   appDist: resolveApp('dist'),
   appHtml: resolveApp('dist/index.html'),
@@ -33,7 +35,7 @@ module.exports = {
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

@@ -11,7 +11,7 @@ function resolve (dir) {
 
 
 module.exports = {
-  // context: path.resolve(__dirname, '../'),
+  context: config.app,
   entry: {
     app: config.appIndexJs
   },
@@ -25,7 +25,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': config.appSrc,
+      '@': config.appSrc
     }
   },
   module: {
@@ -40,8 +40,8 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           config.appSrc, 
-          config.appTest
-          // resolve('node_modules/webpack-dev-server/client')
+          config.appTest,
+          config.ownNodeModules + '/webpack-dev-server/client'
         ]
       },
       {
